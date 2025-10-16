@@ -1,6 +1,8 @@
 package com.example.demo.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,6 +13,7 @@ import lombok.*;
 public class Kitchen {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer kitchenId;
 
     private String name;
@@ -25,4 +28,9 @@ public class Kitchen {
 
     @Column(nullable = false)
     private double latitude;
+    
+    @JsonIgnore
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
 }

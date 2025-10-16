@@ -18,4 +18,8 @@ public class Wallet {
 
     @Enumerated(EnumType.STRING)
     private UserType userType;
+    
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
 }

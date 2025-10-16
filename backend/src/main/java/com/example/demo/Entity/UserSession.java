@@ -23,6 +23,8 @@ public class UserSession {
 
     @Enumerated(EnumType.STRING)
     private UserType userType;
+    
+    private int userId;
 
     private LocalDateTime starTime;
     private LocalDateTime endTime;

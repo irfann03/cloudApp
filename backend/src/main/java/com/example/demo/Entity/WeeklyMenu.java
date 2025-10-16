@@ -21,4 +21,8 @@ public class WeeklyMenu {
 
     @Enumerated(EnumType.STRING)
     private DayOfWeek dayOfWeek;
+    
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }

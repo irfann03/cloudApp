@@ -22,7 +22,13 @@ public class Address {
 
     @Column(nullable = false)
     private double latitude;
+    
+    private boolean defaultAddress;
 
     @Enumerated(EnumType.STRING)
     private AddressType addressType;
+    
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }

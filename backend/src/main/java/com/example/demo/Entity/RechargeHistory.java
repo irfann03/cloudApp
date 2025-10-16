@@ -24,4 +24,8 @@ public class RechargeHistory {
     private PaymentStatus paymentStatus;
 
     private LocalDateTime initatedOn = LocalDateTime.now();
+    
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }
