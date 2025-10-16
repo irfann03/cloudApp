@@ -1,6 +1,8 @@
 package com.example.demo.Entity;
 
 
+import java.util.*;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
@@ -28,6 +30,15 @@ public class Kitchen {
 
     @Column(nullable = false)
     private double latitude;
+    
+    @OneToMany(mappedBy = "kitchen", cascade = CascadeType.ALL)
+    private List<Menu> menus = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "kitchen", cascade = CascadeType.ALL)
+    private List<MenuItems> menuItems = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "kitchen", cascade = CascadeType.ALL)
+    private List<Orders> orders = new ArrayList<>();
     
     @JsonIgnore
     @OneToOne

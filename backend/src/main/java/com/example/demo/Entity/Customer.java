@@ -24,13 +24,16 @@ public class Customer {
     private String phone;
     
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    List<Address> addresses = new ArrayList<>();
+    private List<Address> addresses = new ArrayList<>();
     
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    List<RechargeHistory> pastRecharge = new ArrayList<>();
+    private List<RechargeHistory> pastRecharge = new ArrayList<>();
     
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    List<WeeklyMenu> weeklyMenu = new ArrayList<>();
+    private List<WeeklyMenu> weeklyMenu = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Orders> orders = new ArrayList<>();
     
     @JsonIgnore
     @OneToOne
